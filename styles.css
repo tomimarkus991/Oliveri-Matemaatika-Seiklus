@@ -31,6 +31,10 @@ form {
 .set-input {
   min-width: 14em;
 }
+.set-input2 {
+  min-width: 9.5em;
+  text-align: left;
+}
 
 @media (max-width: 576px) {
   .container {
