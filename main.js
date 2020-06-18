@@ -72,6 +72,9 @@ userAnswerForm.addEventListener("submit", (e) => {
   ].filter((item) => Object.values(item)[0]);
 
   if (typesCount === 0) {
+    alert(
+      "Oliver all on sellised valged checkboxid vajuta nende peale, et see saaks ülesandeid anda"
+    );
     return "";
   }
   if (userAnswer.textLength) {
