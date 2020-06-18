@@ -33,7 +33,13 @@ form {
 }
 
 @media (max-width: 576px) {
-   {
-    color: green;
+  .container {
+    max-width: 575px;
+  }
+  h1 {
+    text-align: center;
+  }
+  .setting {
+    max-width: 12em;
   }
 }
