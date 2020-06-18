@@ -16,6 +16,10 @@ input[type="number"] {
   font-family: consolas;
 }
 
+h1 {
+  text-align: center;
+}
+
 .score-animation {
   padding-top: 7px;
 }
@@ -42,7 +46,6 @@ form {
   }
   h1 {
     font-size: 1em;
-    text-align: center;
   }
   .heading {
     font-size: 2em;
