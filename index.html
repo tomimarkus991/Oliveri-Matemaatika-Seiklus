@@ -1,0 +1,150 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>Oliveri Matemaatika Seiklus</title>
+</head>
+
+<body>
+    <div class="container my-4">
+    <!-- Heading -->
+    <div class="heading d-flex justify-content-center mt-4 mb-5">
+        <h1>Oliveri Matemaatika Seiklus</h1>
+    </div>
+
+    <!-- Score -->
+    <div class="d-flex justify-content-center">
+    <table class="row mb-4">
+        <tr>
+            <th class="col">Level</th>
+            <td class="col user-level">0</td>
+        </tr>
+        <tr class="score-animation">
+            <th class="col">Score</th>
+            <td class="col user-score">0</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Numbers -->
+    <div class="d-flex justify-content-center">
+        <div class="row mb-3">
+            <div class="col">
+                <h2 class="first-number">5</h2>
+            </div>
+            <div class="col">
+                <h2 class="equation">+</h2>
+            </div>
+            <div class="col">
+                <h2 class="second-number">5</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form -->
+    <form class="user-answer-form form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+            <input class="form-control user-answer" type="number" placeholder="Enter Answer"></input>
+        </div>
+    </form>
+    </div>
+    <div class="d-flex justify-content-center">
+        <table class="settings row mb-4">
+            <tr>
+                <th class="col">
+                    <div class="mb-3"><h1>Settings</h1></div>
+                </th>
+            </tr>
+            <tr>
+                <th class="col setting">
+                    <div class="input-group mb-1">
+                        <div class="input-group-prepend">
+                            <span class="set-input input-group-text">Kui suurt arvu soovid</span>
+                          </div>
+                          <input type="text" class="set form-control" id="equation-number-size">
+                          <div class="input-group-append">
+                              <button class="btn btn-outline-secondary" type="button">Update</button>
+                            </div>
+                        </div>
+                </th>
+            </tr>
+            <tr>
+                <th class="col setting">
+                    <div class="input-group mb-1">
+                        <div class="input-group-prepend">
+                            <span class="set-input input-group-text">Millal läheb raskemaks</span>
+                          </div>
+                        <input type="text" class="set form-control" id="harder-when-input">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary" type="button">Update</button>
+                        </div>
+                      </div>
+                </th>
+            </tr>
+            <tr>
+                <th class="col setting">
+                    <div class="input-group mb-1">
+                        <div class="input-group-prepend">
+                            <span class="set-input input-group-text">Liitmine</span>
+                          </div>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                              <input type="checkbox" id="add-el">
+                            </div>
+                          </div>
+                      </div>
+                </th>
+            </tr>
+            <tr>
+                <th class="col setting">
+                    <div class="input-group mb-1">
+                        <div class="input-group-prepend">
+                            <span class="set-input input-group-text">Lahutamine</span>
+                          </div>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                              <input type="checkbox" id="substract-el">
+                            </div>
+                          </div>
+                      </div>
+                </th>
+            </tr>
+            <tr>
+                <th class="col setting">
+                    <div class="input-group mb-1">
+                        <div class="input-group-prepend">
+                            <span class="set-input input-group-text">Korrutamine</span>
+                          </div>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                              <input type="checkbox" id="multiply-el">
+                            </div>
+                          </div>
+                      </div>
+                </th>
+            </tr>
+            <tr>
+                <th class="col setting">
+                    <div class="input-group mb-1">
+                        <div class="input-group-prepend">
+                            <span class="set-input input-group-text">Jagamine</span>
+                          </div>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                              <input type="checkbox" id="divide-el">
+                            </div>
+                          </div>
+                      </div>
+                </th>
+            </tr>
+          </table>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
