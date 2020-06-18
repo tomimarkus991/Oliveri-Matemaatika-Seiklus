@@ -41,9 +41,15 @@ form {
     max-width: 575px;
   }
   h1 {
+    font-size: 1em;
     text-align: center;
   }
   .setting {
     max-width: 12em;
+  }
+  form {
+    display: flex;
+    justify-content: center;
+    max-width: 300px;
   }
 }
