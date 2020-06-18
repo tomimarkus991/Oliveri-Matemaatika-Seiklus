@@ -31,3 +31,9 @@ form {
 .set-input {
   min-width: 14em;
 }
+
+@media (max-width: 576px) {
+   {
+    color: green;
+  }
+}
