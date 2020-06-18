@@ -44,6 +44,9 @@ form {
     font-size: 1em;
     text-align: center;
   }
+  .heading {
+    font-size: 2em;
+  }
   .setting {
     max-width: 12em;
   }
