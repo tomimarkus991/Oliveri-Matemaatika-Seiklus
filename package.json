@@ -1,0 +1,32 @@
+{
+  "name": "Oliveri-Matemaatika-Seiklus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "build": "node_modules/.bin/webpack --mode production",
+    "serve": "webpack-dev-server --mode development",
+    "dev": "node server.js",
+    "heroku-postbuild": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomimarkus991/Oliveri-Matemaatika-Seiklus.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomimarkus991/Oliveri-Matemaatika-Seiklus/issues"
+  },
+  "homepage": "https://github.com/tomimarkus991/Oliveri-Matemaatika-Seiklus#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
