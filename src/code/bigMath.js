@@ -2,7 +2,6 @@ import "../styles/bigMath.css";
 import Snackbar from "./snackbar";
 
 class BigMath {
-  constructor() {}
   init() {
     const firstNumber = document.querySelector(".first-number");
     const equation = document.querySelector(".equation");
