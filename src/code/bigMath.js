@@ -1,7 +1,7 @@
-import "../styles/math.css";
+import "../styles/bigMath.css";
 import Snackbar from "./snackbar";
 
-class Math {
+class BigMath {
   constructor() {}
   init() {
     const firstNumber = document.querySelector(".first-number");
@@ -238,4 +238,4 @@ class Math {
   }
 }
 
-export { Math as default };
+export { BigMath as default };

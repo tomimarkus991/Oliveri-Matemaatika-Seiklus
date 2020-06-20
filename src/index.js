@@ -1,4 +1,4 @@
-import Math from "./code/math";
+import BigMath from "./code/bigMath";
 
-const math = new Math();
+const math = new BigMath();
 math.init();
