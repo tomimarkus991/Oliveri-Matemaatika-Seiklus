@@ -8,6 +8,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, "dist"),
+    watchContentBase: true,
     publicPath: "/assets/",
   },
   module: {
@@ -21,6 +22,10 @@ module.exports = {
             presets: ["@babel/preset-env"],
           },
         },
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
