@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../styles/Settings.css";
 
 class Settings extends Component {
   constructor() {

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../styles/Snackbar.css";
 
 class Snackbar extends Component {
   constructor() {
