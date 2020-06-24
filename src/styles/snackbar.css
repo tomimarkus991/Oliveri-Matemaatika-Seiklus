@@ -3,9 +3,9 @@
   padding: 20px;
   position: fixed;
   left: 50%;
-  margin-left: -120px;
+  margin-left: -100px;
   top: 0;
-  border-radius: 0 0 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
   background: #979393;
   text-align: center;
@@ -14,13 +14,40 @@
   transition: all 0.2s;
 }
 .snackbar.active {
-  margin-top: 46%;
-  margin-left: 3px;
+  margin-top: 20.8%;
 }
 
 @media (max-width: 576px) {
   .snackbar.active {
-    margin-top: 124%;
-    margin-left: 3px;
+    margin-top: 139%;
+    margin-left: 1px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .snackbar.active {
+    margin-top: 74.8%;
+    margin-right: 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .snackbar.active {
+    margin-top: 45.5%;
+    margin-right: 10px;
+  }
+}
+
+@media (min-width: 864px) and (max-width: 1200px) {
+  .snackbar.active {
+    margin-top: 34.5%;
+    margin-right: 10px;
+  }
+}
+
+@media (min-width: 1344px) and (max-width: 1674px) {
+  .snackbar.active {
+    margin-top: 30%;
+    margin-right: 10px;
   }
 }

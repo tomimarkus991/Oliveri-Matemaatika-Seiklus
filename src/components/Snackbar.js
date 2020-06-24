@@ -1,4 +1,4 @@
-import "../styles/snackbar.css";
+import "../styles/Snackbar.css";
 
 class Snackbar {
   constructor() {
@@ -9,12 +9,14 @@ class Snackbar {
     document.querySelector("body").appendChild(this.snackbar);
   }
   show(message, typesCount) {
-    if (typesCount == 0) {
+    console.log("tere");
+
+    if (typesCount === 0) {
       this.snackbar.textContent = message;
       this.snackbar.classList.add("active");
       setTimeout(() => {
         this.snackbar.classList.remove("active");
-      }, 5000);
+      }, 2300);
     }
   }
 }
