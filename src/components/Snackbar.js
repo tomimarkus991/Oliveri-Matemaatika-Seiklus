@@ -1,7 +1,9 @@
+import React, { Component } from "react";
 import "../styles/Snackbar.css";
 
-class Snackbar {
+class Snackbar extends Component {
   constructor() {
+    super();
     this.snackbar = document.createElement("div");
   }
   init() {
@@ -9,8 +11,6 @@ class Snackbar {
     document.querySelector("body").appendChild(this.snackbar);
   }
   show(message, typesCount) {
-    console.log("tere");
-
     if (typesCount === 0) {
       this.snackbar.textContent = message;
       this.snackbar.classList.add("active");
@@ -19,6 +19,9 @@ class Snackbar {
       }, 2300);
     }
   }
+  render() {
+    return <div></div>;
+  }
 }
 
-export { Snackbar as default };
+export default Snackbar;

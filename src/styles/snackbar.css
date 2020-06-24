@@ -14,12 +14,12 @@
   transition: all 0.2s;
 }
 .snackbar.active {
-  margin-top: 20.8%;
+  margin-top: 23.8%;
 }
 
 @media (max-width: 576px) {
   .snackbar.active {
-    margin-top: 139%;
+    margin-top: 160%;
     margin-left: 1px;
   }
 }
