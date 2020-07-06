@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import ThemeToggler from "./ThemeToggler";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 class Settings extends Component {
   constructor() {
@@ -55,175 +57,187 @@ class Settings extends Component {
       multiply,
       divide,
     } = this.state;
-
     return (
-      <div className="container text-center">
-        <div className="row">
-          <div className="col">
-            <p className="h1">Settings</p>
-          </div>
-        </div>
-        <form onSubmit={this.handleSubmit}>
-          <div className="row justify-content-sm-center">
-            <div className="col-sm-auto">
-              <div className="input-group mb-1">
-                <div className="input-group-prepend">
-                  <span className="set-input input-group-text text-setting">
-                    Kui suurt arvu soovid
-                  </span>
+      <ThemeContext.Consumer>
+        {(context) => {
+          const { isLightTheme, light, dark } = context;
+          const theme = isLightTheme ? light : dark;
+          const { syntax, ui, bg } = theme;
+          return (
+            <div
+              className="container text-center pb-2 rounded-bottom"
+              style={{ background: bg, color: syntax }}
+            >
+              <div className="row">
+                <div className="col">
+                  <p className="h1">Settings</p>
                 </div>
-                <input
-                  type="number"
-                  className="set form-control text-setting-field"
-                  id="maxNumber"
-                  onChange={this.handleSettingChange}
-                  value={maxNumber}
-                  max="999999"
-                />
               </div>
-            </div>
-          </div>
-
-          <div className="row justify-content-sm-center">
-            <div className="col-sm-auto">
-              <div className="input-group mb-1">
-                <div className="input-group-prepend">
-                  <span className="set-input input-group-text text-setting">
-                    Millal levelist läbi kukud
-                  </span>
-                </div>
-                <input
-                  type="number"
-                  className="set form-control text-setting-field"
-                  id="levelDownWhen"
-                  onChange={this.handleSettingChange}
-                  value={levelDownWhen}
-                  max="999999"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="row justify-content-sm-center">
-            <div className="col-sm-auto">
-              <div className="input-group mb-1">
-                <div className="input-group-prepend">
-                  <span className="set-input input-group-text text-setting">
-                    Millal läheb level suuremaks
-                  </span>
-                </div>
-                <input
-                  type="number"
-                  className="set form-control text-setting-field"
-                  id="levelUpWhen"
-                  onChange={this.handleSettingChange}
-                  value={levelUpWhen}
-                  max="999999"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="container my-2">
-            <div className="row justify-content-center">
-              <div className="col-sm-auto">
-                <div className="input-group mb-1">
-                  <div className="input-group-text custom-control custom-switch">
-                    <div className="ml-1">
+              <form onSubmit={this.handleSubmit}>
+                <div className="row justify-content-sm-center">
+                  <div className="col-sm-auto">
+                    <div className="input-group mb-1">
+                      <div className="input-group-prepend">
+                        <span className="set-input input-group-text text-setting">
+                          Kui suurt arvu soovid
+                        </span>
+                      </div>
                       <input
-                        type="checkbox"
-                        className="custom-control-input"
-                        id="add"
+                        type="number"
+                        className="set form-control text-setting-field"
+                        id="maxNumber"
                         onChange={this.handleSettingChange}
-                        value={add}
-                        defaultChecked
+                        value={maxNumber}
+                        max="999999"
                       />
-                      <label
-                        className="custom-control-label checkbox-setting-label"
-                        htmlFor="add"
-                      >
-                        Liitmine
-                      </label>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="col-sm-auto">
-                <div className="input-group mb-1">
-                  <div className="input-group-text custom-control custom-switch">
-                    <div className="ml-1">
+                <div className="row justify-content-sm-center">
+                  <div className="col-sm-auto">
+                    <div className="input-group mb-1">
+                      <div className="input-group-prepend">
+                        <span className="set-input input-group-text text-setting">
+                          Millal levelist läbi kukud
+                        </span>
+                      </div>
                       <input
-                        type="checkbox"
-                        className="custom-control-input"
-                        id="substract"
+                        type="number"
+                        className="set form-control text-setting-field"
+                        id="levelDownWhen"
                         onChange={this.handleSettingChange}
-                        value={substract}
+                        value={levelDownWhen}
+                        max="999999"
                       />
-                      <label
-                        className="custom-control-label checkbox-setting-label"
-                        htmlFor="substract"
-                      >
-                        Lahutamine
-                      </label>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="col-sm-auto">
-                <div className="input-group mb-1">
-                  <div className="input-group-text custom-control custom-switch">
-                    <div className="ml-1">
+                <div className="row justify-content-sm-center">
+                  <div className="col-sm-auto">
+                    <div className="input-group mb-1">
+                      <div className="input-group-prepend">
+                        <span className="set-input input-group-text text-setting">
+                          Millal läheb level suuremaks
+                        </span>
+                      </div>
                       <input
-                        type="checkbox"
-                        className="custom-control-input"
-                        id="multiply"
+                        type="number"
+                        className="set form-control text-setting-field"
+                        id="levelUpWhen"
                         onChange={this.handleSettingChange}
-                        value={multiply}
+                        value={levelUpWhen}
+                        max="999999"
                       />
-                      <label
-                        className="custom-control-label checkbox-setting-label"
-                        htmlFor="multiply"
-                      >
-                        Korrutamine
-                      </label>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="col-sm-auto">
-                <div className="input-group mb-1">
-                  <div className="input-group-text custom-control custom-switch">
-                    <div className="ml-1">
-                      <input
-                        type="checkbox"
-                        className="custom-control-input"
-                        id="divide"
-                        onChange={this.handleSettingChange}
-                        value={divide}
-                      />
-                      <label
-                        className="custom-control-label checkbox-setting-label"
-                        htmlFor="divide"
-                      >
-                        Jagamine
-                      </label>
+                <div className="container my-2">
+                  <div className="row justify-content-center">
+                    <div className="col-sm-auto">
+                      <div className="input-group mb-1">
+                        <div className="input-group-text custom-control custom-switch">
+                          <div className="ml-1">
+                            <input
+                              type="checkbox"
+                              className="custom-control-input"
+                              id="add"
+                              onChange={this.handleSettingChange}
+                              value={add}
+                              defaultChecked
+                            />
+                            <label
+                              className="custom-control-label checkbox-setting-label"
+                              htmlFor="add"
+                            >
+                              Liitmine
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-sm-auto">
+                      <div className="input-group mb-1">
+                        <div className="input-group-text custom-control custom-switch">
+                          <div className="ml-1">
+                            <input
+                              type="checkbox"
+                              className="custom-control-input"
+                              id="substract"
+                              onChange={this.handleSettingChange}
+                              value={substract}
+                            />
+                            <label
+                              className="custom-control-label checkbox-setting-label"
+                              htmlFor="substract"
+                            >
+                              Lahutamine
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-sm-auto">
+                      <div className="input-group mb-1">
+                        <div className="input-group-text custom-control custom-switch">
+                          <div className="ml-1">
+                            <input
+                              type="checkbox"
+                              className="custom-control-input"
+                              id="multiply"
+                              onChange={this.handleSettingChange}
+                              value={multiply}
+                            />
+                            <label
+                              className="custom-control-label checkbox-setting-label"
+                              htmlFor="multiply"
+                            >
+                              Korrutamine
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-sm-auto">
+                      <div className="input-group mb-1">
+                        <div className="input-group-text custom-control custom-switch">
+                          <div className="ml-1">
+                            <input
+                              type="checkbox"
+                              className="custom-control-input"
+                              id="divide"
+                              onChange={this.handleSettingChange}
+                              value={divide}
+                            />
+                            <label
+                              className="custom-control-label checkbox-setting-label"
+                              htmlFor="divide"
+                            >
+                              Jagamine
+                            </label>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+
+                <div className="row justify-content-center my-4">
+                  <div className="col">
+                    <button className="btn btn-dark mb-4">Save</button>
+                    <ThemeToggler />
+                  </div>
+                </div>
+              </form>
             </div>
-          </div>
-
-          <div className="row justify-content-center my-4">
-            <div className="col">
-              <button className="btn btn-outline-secondary">Save</button>
-            </div>
-          </div>
-        </form>
-      </div>
+          );
+        }}
+      </ThemeContext.Consumer>
     );
   }
 }

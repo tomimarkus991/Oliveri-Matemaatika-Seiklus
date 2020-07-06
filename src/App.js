@@ -3,28 +3,26 @@ import React, { Component } from "react";
 import CheckEquation from "./components/CheckEquation";
 import Settings from "./components/Settings";
 import Snackbar from "./components/Snackbar";
-import "./styles/App.css";
+import ThemeContextProvider from "./contexts/ThemeContext";
+import ScoreAndLevel from "./components/ScoreAndLevel";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      equation: {
-        firstNumber: 5,
-        mark: "+",
-        secondNumber: 5,
-      },
-      maxNumber: 5,
-      levelDownWhen: -15,
-      levelUpWhen: 15,
-      add: true,
-      substract: false,
-      multiply: false,
-      divide: false,
-      score: 0,
-      level: 0,
-    };
-  }
+  state = {
+    equation: {
+      firstNumber: 5,
+      mark: "+",
+      secondNumber: 5,
+    },
+    maxNumber: 5,
+    levelDownWhen: -15,
+    levelUpWhen: 15,
+    add: true,
+    substract: false,
+    multiply: false,
+    divide: false,
+    score: 0,
+    level: 0,
+  };
   updateSettings = (
     maxNumber,
     levelDownWhen,
@@ -148,41 +146,27 @@ class App extends Component {
       level,
     } = this.state;
     return (
-      <div className="container my-4 App">
-        <h1 className="mt-4 mb-5 text-center">Oliveri Matemaatika Seiklus</h1>
-        <div className="container text-center">
-          <div className="row">
-            <div className="col">
-              <p className="h3">Level: {level}</p>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col score">
-              <p
-                className="h3"
-                onSubmit={(this.correctAnswerScore, this.wrongAnswerScore)}
-              >
-                Score: {score}
-              </p>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col">
-              <p className="h3">Maksimaalne arv: {maxNumber}</p>
-            </div>
-          </div>
-        </div>
-        <CheckEquation equation={equation} calculate={this.calculate} />
-        <Settings
-          updateSettings={this.updateSettings}
-          maxNumber={maxNumber}
-          levelDownWhen={levelDownWhen}
-          levelUpWhen={levelUpWhen}
-          add={add}
-          substract={substract}
-          multiply={multiply}
-          divide={divide}
-        />
+      <div className="container my-4 App rounded-circle">
+        <ThemeContextProvider>
+          <ScoreAndLevel
+            score={score}
+            level={level}
+            maxNumber={maxNumber}
+            correctAnswerScore={this.correctAnswerScore}
+            wrongAnswerScore={this.wrongAnswerScore}
+          />
+          <CheckEquation equation={equation} calculate={this.calculate} />
+          <Settings
+            updateSettings={this.updateSettings}
+            maxNumber={maxNumber}
+            levelDownWhen={levelDownWhen}
+            levelUpWhen={levelUpWhen}
+            add={add}
+            substract={substract}
+            multiply={multiply}
+            divide={divide}
+          />
+        </ThemeContextProvider>
       </div>
     );
   }
