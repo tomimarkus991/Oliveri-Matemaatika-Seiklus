@@ -8,11 +8,9 @@ import ScoreAndLevel from "./components/ScoreAndLevel";
 
 class App extends Component {
   state = {
-    equation: {
-      firstNumber: 5,
-      mark: "+",
-      secondNumber: 5,
-    },
+    firstNumber: 5,
+    mark: "+",
+    secondNumber: 5,
     maxNumber: 5,
     levelDownWhen: -15,
     levelUpWhen: 15,
@@ -63,9 +61,11 @@ class App extends Component {
       substract,
       multiply,
       divide,
+      firstNumber,
+      mark,
+      secondNumber,
     } = this.state;
     const typesCount = add + substract + multiply + divide;
-    const { firstNumber, mark, secondNumber } = this.state.equation;
     const statement = `${firstNumber}${mark}${secondNumber}`;
     let { score, level } = this.state;
 
@@ -125,15 +125,16 @@ class App extends Component {
     let randomMark = Math.floor(Math.random() * Number(typesCount));
 
     this.setState({
-      equation: {
-        firstNumber: Math.floor(Math.random() * maxNumber + 1),
-        mark: typesArray[randomMark].mark,
-        secondNumber: Math.floor(Math.random() * maxNumber + 1),
-      },
+      firstNumber: Math.floor(Math.random() * maxNumber + 1),
+      mark: typesArray[randomMark].mark,
+      secondNumber: Math.floor(Math.random() * maxNumber + 1),
     });
   };
   render() {
     const {
+      firstNumber,
+      mark,
+      secondNumber,
       maxNumber,
       levelDownWhen,
       levelUpWhen,
@@ -141,7 +142,6 @@ class App extends Component {
       substract,
       multiply,
       divide,
-      equation,
       score,
       level,
     } = this.state;
@@ -155,7 +155,12 @@ class App extends Component {
             correctAnswerScore={this.correctAnswerScore}
             wrongAnswerScore={this.wrongAnswerScore}
           />
-          <CheckEquation equation={equation} calculate={this.calculate} />
+          <CheckEquation
+            firstNumber={firstNumber}
+            mark={mark}
+            secondNumber={secondNumber}
+            calculate={this.calculate}
+          />
           <Settings
             updateSettings={this.updateSettings}
             maxNumber={maxNumber}
