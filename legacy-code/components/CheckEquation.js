@@ -1,20 +1,20 @@
-import React, { useContext, useState } from "react";
-import { ThemeContext } from "../contexts/ThemeContext";
+import React, { useContext, useState } from 'react';
+import { ThemeContext } from '../contexts/ThemeContext';
 
 const CheckEquation = ({ firstNumber, mark, secondNumber, calculate }) => {
   const [answer, setAnswer] = useState(0);
-  const handleChange = (e) => {
+  const handleChange = e => {
     setAnswer(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     calculate(answer);
     e.target.reset();
   };
   const { isLightTheme, light, dark } = useContext(ThemeContext);
   const theme = isLightTheme ? light : dark;
-  const { syntax, ui, bg } = theme;
+  const { syntax, bg } = theme;
   return (
     <div
       className="container text-center py-4"

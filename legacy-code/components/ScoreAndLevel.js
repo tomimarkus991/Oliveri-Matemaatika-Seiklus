@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { ThemeContext } from "../contexts/ThemeContext";
+import React, { useContext } from 'react';
+import { ThemeContext } from '../contexts/ThemeContext';
 
 const ScoreAndLevel = ({
   level,
@@ -10,7 +10,7 @@ const ScoreAndLevel = ({
 }) => {
   const { isLightTheme, light, dark } = useContext(ThemeContext);
   const theme = isLightTheme ? light : dark;
-  const { syntax, ui, bg } = theme;
+  const { syntax, bg } = theme;
   return (
     <div
       className="container text-center rounded-top"
@@ -26,7 +26,10 @@ const ScoreAndLevel = ({
       </div>
       <div className="row">
         <div className="col score">
-          <p className="h3" onSubmit={(correctAnswerScore, wrongAnswerScore)}>
+          <p
+            className="h3"
+            onSubmit={(correctAnswerScore, wrongAnswerScore)}
+          >
             Score: {score}
           </p>
         </div>
