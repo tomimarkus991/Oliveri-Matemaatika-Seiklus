@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/navbar';
 import Home from './pages/home';
 import HomeDetailsProvider from './context/homeContext';
+import Settings from './components/Settings';
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <Navbar />
       <HomeDetailsProvider>
         <Home />
+        <Settings />
       </HomeDetailsProvider>
     </Box>
   );
