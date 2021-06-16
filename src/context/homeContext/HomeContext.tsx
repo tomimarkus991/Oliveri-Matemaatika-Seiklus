@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react';
+import { GetRandomNumber } from '../../utils/RandomNumber';
 
 interface HomeContextType {
   minNumber: number;
@@ -11,6 +12,10 @@ interface HomeContextType {
   setFirstNumber: React.Dispatch<React.SetStateAction<number>>;
   setSecondNumber: React.Dispatch<React.SetStateAction<number>>;
   setOperator: React.Dispatch<React.SetStateAction<string>>;
+  score: number;
+  level: number;
+  setScore: React.Dispatch<React.SetStateAction<number>>;
+  setLevel: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const initHomeContext: HomeContextType = {
@@ -24,21 +29,27 @@ const initHomeContext: HomeContextType = {
   setFirstNumber: () => undefined,
   setSecondNumber: () => undefined,
   setOperator: () => undefined,
+  score: 0,
+  level: 0,
+  setScore: () => undefined,
+  setLevel: () => undefined,
 };
 
 export const HomeContext = createContext<HomeContextType>(initHomeContext);
 
 const HomeDetailsProvider = (props: any) => {
   // this state will be shared with all components
-  const [operator, setOperator] = useState('+');
   const [minNumber, setMinNumber] = useState(2);
-  const [maxNumber, setMaxNumber] = useState(20);
+  const [maxNumber, setMaxNumber] = useState(5);
   const [firstNumber, setFirstNumber] = useState(
-    Math.floor(Math.random() * maxNumber),
+    GetRandomNumber(minNumber, maxNumber),
   );
   const [secondNumber, setSecondNumber] = useState(
-    Math.floor(Math.random() * maxNumber),
+    GetRandomNumber(minNumber, maxNumber),
   );
+  const [operator, setOperator] = useState('+');
+  const [score, setScore] = useState(0);
+  const [level, setLevel] = useState(0);
 
   return (
     // this is the provider providing state
@@ -54,6 +65,10 @@ const HomeDetailsProvider = (props: any) => {
         setFirstNumber,
         setSecondNumber,
         setOperator,
+        score,
+        level,
+        setScore,
+        setLevel,
       }}
     >
       {props.children}
