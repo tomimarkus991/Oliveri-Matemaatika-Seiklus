@@ -1,7 +1,7 @@
-import { Box, Heading } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import { useContext } from 'react';
-import { HomeContext } from '../../context/homeContext';
 import AnimatedNumber from 'react-animated-numbers';
+import { HomeContext } from '../../context/homeContext';
 
 const Result: React.FC = () => {
   const { score, isCorrect } = useContext(HomeContext);

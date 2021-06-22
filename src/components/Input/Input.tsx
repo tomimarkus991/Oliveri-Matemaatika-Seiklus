@@ -3,7 +3,7 @@ import {
   HStack,
   Heading,
   Input as ChakraInput,
-  calc,
+  // calc,
   Flex,
 } from '@chakra-ui/react';
 import { evaluate } from 'mathjs';
@@ -32,25 +32,26 @@ const Input: React.FC = () => {
   } = useContext(HomeContext);
 
   useEffect(() => {
-    if (operators[randomOperator] === '-') {
-      let first = GetRandomAddNumber(minNumber, maxNumber);
-      let second = GetRandomAddNumber(minNumber, maxNumber);
-      if (first < second) {
-        setFirstNumber(second);
-        setSecondNumber(first);
-      } else {
-        setFirstNumber(first);
-        setSecondNumber(second);
+    const updateEquation = () => {
+      if (operators[randomOperator] === '-') {
+        let first = GetRandomAddNumber(minNumber, maxNumber);
+        let second = GetRandomAddNumber(minNumber, maxNumber);
+        if (first < second) {
+          setFirstNumber(second);
+          setSecondNumber(first);
+        } else {
+          setFirstNumber(first);
+          setSecondNumber(second);
+        }
+      } else if (operators[randomOperator] === '+') {
+        setFirstNumber(GetRandomAddNumber(minNumber, maxNumber));
+        setSecondNumber(GetRandomAddNumber(minNumber, maxNumber));
       }
-    } else if (operators[randomOperator] === '+') {
-      setFirstNumber(GetRandomAddNumber(minNumber, maxNumber));
-      setSecondNumber(GetRandomAddNumber(minNumber, maxNumber));
-    }
+    };
+    updateEquation();
   }, [randomOperator, setRandomOperator]);
 
   useEffect(() => {
-    console.log(operators.length);
-
     if (operators.length === 0) {
       setIsInputDisabled(true);
     } else {
