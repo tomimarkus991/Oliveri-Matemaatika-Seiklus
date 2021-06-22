@@ -32,23 +32,21 @@ const Input: React.FC = () => {
   } = useContext(HomeContext);
 
   useEffect(() => {
-    const updateEquation = () => {
-      if (operators[randomOperator] === '-') {
-        let first = GetRandomAddNumber(minNumber, maxNumber);
-        let second = GetRandomAddNumber(minNumber, maxNumber);
-        if (first < second) {
-          setFirstNumber(second);
-          setSecondNumber(first);
-        } else {
-          setFirstNumber(first);
-          setSecondNumber(second);
-        }
-      } else if (operators[randomOperator] === '+') {
-        setFirstNumber(GetRandomAddNumber(minNumber, maxNumber));
-        setSecondNumber(GetRandomAddNumber(minNumber, maxNumber));
+    if (operators[randomOperator] === '-') {
+      let first = GetRandomAddNumber(minNumber, maxNumber);
+      let second = GetRandomAddNumber(minNumber, maxNumber);
+      if (first < second) {
+        setFirstNumber(second);
+        setSecondNumber(first);
+      } else {
+        setFirstNumber(first);
+        setSecondNumber(second);
       }
-    };
-    updateEquation();
+    } else if (operators[randomOperator] === '+') {
+      setFirstNumber(GetRandomAddNumber(minNumber, maxNumber));
+      setSecondNumber(GetRandomAddNumber(minNumber, maxNumber));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [randomOperator, setRandomOperator]);
 
   useEffect(() => {
