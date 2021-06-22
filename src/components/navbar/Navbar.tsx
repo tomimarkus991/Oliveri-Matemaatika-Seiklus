@@ -1,13 +1,12 @@
 import {
   Box,
-  Button,
+  IconButton,
   useColorMode,
   Flex,
   Heading,
   Select,
 } from '@chakra-ui/react';
-import { MoonIcon } from '@chakra-ui/icons';
-import { FaSun } from 'react-icons/fa';
+import { FaMoon, FaSun } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 
 const Navbar: React.FC = () => {
@@ -20,9 +19,19 @@ const Navbar: React.FC = () => {
           <Heading>Oliveri Matemaatika Seiklus</Heading>
         </Box>
         <Flex ml="auto" flexDirection="row">
-          <Button onClick={toggleColorMode} mr={4}>
-            {colorMode === 'light' ? <MoonIcon /> : <FaSun />}
-          </Button>
+          <IconButton
+            aria-label="Switch Themes"
+            borderRadius={5}
+            onClick={toggleColorMode}
+            mr={4}
+            icon={
+              colorMode === 'light' ? (
+                <FaMoon size={20} />
+              ) : (
+                <FaSun size={20} />
+              )
+            }
+          />
           <Select>
             <option onClick={() => i18n.changeLanguage('en')} selected>
               English
