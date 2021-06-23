@@ -7,13 +7,8 @@ const Result: React.FC = () => {
   const { score, isCorrect, level } = useContext(HomeContext);
 
   return (
-    <Flex
-      mb={6}
-      textAlign="center"
-      alignItems="center"
-      justifyContent="center"
-    >
-      <HStack spacing="24px" alignItems="center">
+    <Flex mb={6} justifyContent="center">
+      <HStack spacing="24px">
         <Text fontSize={24}>Level</Text>
         <AnimatedNumber
           fontStyle={{
