@@ -10,15 +10,23 @@ const Result: React.FC = () => {
     <Box m="auto" mb={6}>
       {isCorrect ? (
         <AnimatedNumber
-          fontStyle={{ fontSize: 40, fontWeight: 'bold', color: 'green' }}
+          fontStyle={{
+            fontSize: 40,
+            fontWeight: 'bold',
+            color: '#38A169',
+          }}
           animateToNumber={score}
           animationType={'calm'}
         />
       ) : (
         <AnimatedNumber
-          fontStyle={{ fontSize: 40, fontWeight: 'bold', color: 'red' }}
+          fontStyle={{
+            fontSize: 40,
+            fontWeight: 'bold',
+            color: '#E53E3E',
+          }}
           animateToNumber={score}
-          animationType={'calm'}
+          animationType={'random'}
         />
       )}
     </Box>
