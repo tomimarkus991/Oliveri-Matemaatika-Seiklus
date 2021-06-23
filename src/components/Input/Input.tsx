@@ -29,6 +29,10 @@ const Input: React.FC = () => {
     score,
     setIsCorrect,
     setOperators,
+    levelDownWhen,
+    levelUpWhen,
+    level,
+    setLevel,
   } = useContext(HomeContext);
 
   useEffect(() => {
@@ -89,9 +93,17 @@ const Input: React.FC = () => {
     ) {
       setScore(score + 5);
       setIsCorrect(true);
+      if (score >= levelUpWhen) {
+        setScore(0);
+        setLevel(level + 1);
+      }
     } else {
       setIsCorrect(false);
       setScore(score - 5);
+      if (score <= levelDownWhen) {
+        setScore(0);
+        setLevel(level - 1);
+      }
     }
     e.target.reset();
   };

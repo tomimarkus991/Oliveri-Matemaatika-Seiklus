@@ -18,6 +18,10 @@ interface HomeContextType {
   setLevel: React.Dispatch<React.SetStateAction<number>>;
   isCorrect: boolean;
   setIsCorrect: React.Dispatch<React.SetStateAction<boolean>>;
+  levelDownWhen: number;
+  levelUpWhen: number;
+  setLevelDownWhen: React.Dispatch<React.SetStateAction<number>>;
+  setLevelUpWhen: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const initHomeContext: HomeContextType = {
@@ -37,6 +41,10 @@ const initHomeContext: HomeContextType = {
   setLevel: () => undefined,
   isCorrect: true,
   setIsCorrect: () => undefined,
+  levelDownWhen: -15,
+  levelUpWhen: 15,
+  setLevelDownWhen: () => undefined,
+  setLevelUpWhen: () => undefined,
 };
 
 export const HomeContext = createContext<HomeContextType>(initHomeContext);
@@ -54,6 +62,8 @@ const HomeDetailsProvider = (props: any) => {
   const [operators, setOperators] = useState(['+']);
   const [score, setScore] = useState(0);
   const [level, setLevel] = useState(0);
+  const [levelDownWhen, setLevelDownWhen] = useState(-15);
+  const [levelUpWhen, setLevelUpWhen] = useState(15);
   const [isCorrect, setIsCorrect] = useState(true);
 
   return (
@@ -75,6 +85,10 @@ const HomeDetailsProvider = (props: any) => {
         setLevel,
         isCorrect,
         setIsCorrect,
+        levelDownWhen,
+        setLevelDownWhen,
+        levelUpWhen,
+        setLevelUpWhen,
       }}
     >
       {props.children}

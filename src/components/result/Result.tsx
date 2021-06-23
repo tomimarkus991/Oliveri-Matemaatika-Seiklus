@@ -1,13 +1,28 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import { useContext } from 'react';
 import AnimatedNumber from 'react-animated-numbers';
 import { HomeContext } from '../../context/homeContext';
 
 const Result: React.FC = () => {
-  const { score, isCorrect } = useContext(HomeContext);
+  const { score, isCorrect, level } = useContext(HomeContext);
 
   return (
-    <Box m="auto" mb={6}>
+    <Flex
+      mb={6}
+      flexDirection="column"
+      textAlign="center"
+      alignItems="center"
+    >
+      <Text>Level</Text>
+      <AnimatedNumber
+        fontStyle={{
+          fontSize: 40,
+          fontWeight: 'bold',
+        }}
+        animateToNumber={level}
+        animationType={'random'}
+      />
+      <Text>Score</Text>
       {isCorrect ? (
         <AnimatedNumber
           fontStyle={{
@@ -16,7 +31,7 @@ const Result: React.FC = () => {
             color: '#38A169',
           }}
           animateToNumber={score}
-          animationType={'calm'}
+          animationType={'random'}
         />
       ) : (
         <AnimatedNumber
@@ -29,7 +44,7 @@ const Result: React.FC = () => {
           animationType={'random'}
         />
       )}
-    </Box>
+    </Flex>
   );
 };
 export default Result;

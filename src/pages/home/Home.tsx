@@ -5,7 +5,7 @@ import Settings from '../../components/settings';
 
 const Home: React.FC = () => {
   return (
-    <Box maxW={1200} m="auto" mt={{ sm: 10, md: 100 }} pb={5}>
+    <Box maxW={1200} m="auto" mt={{ sm: 10, md: 50 }} pb={5}>
       <Flex flexDirection="column" justifyContent="center">
         <Result />
         <Input />
