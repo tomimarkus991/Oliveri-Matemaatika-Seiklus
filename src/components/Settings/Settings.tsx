@@ -15,7 +15,7 @@ const Settings: React.FC = () => {
   const { t } = useTranslation();
   return (
     <Box mt={20}>
-      <Box maxW={400} m="auto">
+      <Box maxW={250} m="auto">
         <Heading mb={5} textAlign="center">
           {t('Settings')}
         </Heading>

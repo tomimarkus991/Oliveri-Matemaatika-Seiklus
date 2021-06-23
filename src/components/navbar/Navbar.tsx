@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { i18n } = useTranslation();
   return (
-    <Flex position="sticky" top={0} zIndex={1} p={2}>
+    <Flex p={2}>
       <Flex
         flex={1}
         maxW={{ sm: 600, md: 800, lg: 1100 }}
@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
         flexDirection={{ base: 'column', sm: 'row' }}
       >
         <Box mr={{ base: 0, sm: 'auto' }} mb={{ base: 2, sm: 0 }}>
-          <Heading fontSize={{ base: 18, sm: 22 }}>
+          <Heading fontSize={{ base: 20, sm: 22 }}>
             Oliveri Matemaatika Seiklus
           </Heading>
         </Box>
