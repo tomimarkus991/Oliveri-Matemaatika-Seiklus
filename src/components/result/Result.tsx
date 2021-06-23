@@ -7,7 +7,7 @@ const Result: React.FC = () => {
   const { score, isCorrect } = useContext(HomeContext);
 
   return (
-    <Box m="auto" mb={8}>
+    <Box m="auto" mb={6}>
       {isCorrect ? (
         <AnimatedNumber
           fontStyle={{ fontSize: 40, fontWeight: 'bold', color: 'green' }}

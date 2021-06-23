@@ -19,13 +19,14 @@ const Navbar: React.FC = () => {
         maxW={{ sm: 600, md: 800, lg: 1100 }}
         alignItems="center"
         margin="auto"
+        flexDirection={{ base: 'column', sm: 'row' }}
       >
-        <Box mr="auto">
-          <Heading fontSize={{ base: 19, sm: 22 }}>
+        <Box mr={{ base: 0, sm: 'auto' }} mb={{ base: 2, sm: 0 }}>
+          <Heading fontSize={{ base: 18, sm: 22 }}>
             Oliveri Matemaatika Seiklus
           </Heading>
         </Box>
-        <Flex ml="auto" flexDirection="row">
+        <Flex ml={{ base: 0, sm: 'auto' }} flexDirection="row">
           <IconButton
             aria-label="Switch Themes"
             borderRadius={5}
