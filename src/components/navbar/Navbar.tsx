@@ -14,9 +14,16 @@ const Navbar: React.FC = () => {
   const { i18n } = useTranslation();
   return (
     <Flex position="sticky" top={0} zIndex={1} p={2}>
-      <Flex flex={1} maxW={1200} alignItems="center" margin="auto">
+      <Flex
+        flex={1}
+        maxW={{ sm: 600, md: 800, lg: 1100 }}
+        alignItems="center"
+        margin="auto"
+      >
         <Box mr="auto">
-          <Heading>Oliveri Matemaatika Seiklus</Heading>
+          <Heading fontSize={{ base: 19, sm: 22 }}>
+            Oliveri Matemaatika Seiklus
+          </Heading>
         </Box>
         <Flex ml="auto" flexDirection="row">
           <IconButton
@@ -32,16 +39,15 @@ const Navbar: React.FC = () => {
               )
             }
           />
-          <Select>
-            <option onClick={() => i18n.changeLanguage('en')} selected>
+          <Select
+            cursor="pointer"
+            onChange={e => i18n.changeLanguage(e.target.value)}
+          >
+            <option value="en" selected>
               English
             </option>
-            <option onClick={() => i18n.changeLanguage('est')}>
-              Estonian
-            </option>
-            <option onClick={() => i18n.changeLanguage('de')}>
-              German
-            </option>
+            <option value="est">Estonian</option>
+            <option value="de">German</option>
           </Select>
         </Flex>
       </Flex>
