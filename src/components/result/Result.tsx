@@ -19,7 +19,7 @@ const Result: React.FC = () => {
         colorScheme="blue"
         size="lg"
         value={(score / levelUpWhen) * 100}
-        w={600}
+        w={{ base: 300, sm: 400, md: 600 }}
         borderRadius={20}
       />
       <Flex mb={6} justifyContent="center">
